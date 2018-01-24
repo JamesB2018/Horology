@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <script type="text/javascript" src="Lib/scene_manager.js"></script>
     <script type="text/javascript" src="Lib/scene.js"></script>
-    <script type="text/javascript" src="Lib/image_loader.js"></script>
+    <script type="text/javascript" src="Lib/Image_loader.js"></script>
     <script type="text/javascript" src="Lib/game.js"></script>
     <script type="text/javascript" src="Lib/sprite.js"></script>
     <script type="text/javascript" src="Lib/game_object.js"></script>
@@ -83,17 +83,17 @@
     return board;
     }
     window.addEventListener('load', function() {
-    var canvas = document.getElementById("canvas");
-    var manifest = {
-    "images": {
-    "bg": "img/bg.png",
-    "play_btn": "img/play_btn.png",
-    "4by4": "img/4by4.png",
-    "6by6": "img/6by6.png",
-    "8by8": "img/8by8.png",
-    "12by12": "img/12by12.png",
-    "replay_btn": "img/replay_btn.png"
-    }
+        var canvas = document.getElementById("canvas");
+        var manifest = {
+            "images": {
+            "bg": "img/bg.png",
+            "play_btn": "img/play_btn.png",
+            "4by4": "img/4by4.png",
+            "6by6": "img/6by6.png",
+            "8by8": "img/8by8.png",
+            "12by12": "img/12by12.png",
+            "replay_btn": "img/replay_btn.png"
+        }
     };
     // Create our game
     var game = new Game(canvas, manifest);
@@ -101,12 +101,7 @@
     var context = this.context;
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.drawImage(game.images.get("bg"), 0, 0);
-    // Add menu buttons
-    // var playBtn = new GameObject(750, 305, 150, 100, game.images.get("play_btn"));
-    //this.addGameObject("play_btn", playBtn);
-    //playBtn.setOnClickListener(function(event) {
-    // game.scenes.switchTo("game");
-    // });
+
     var size4by4 = new GameObject(350, 195, 150, 100, game.images.get("4by4"));
     this.addGameObject("4by4", size4by4);
     size4by4.setOnClickListener(function(event) {
@@ -217,7 +212,7 @@
     </script>
 
 </head>
-<body>
-
+<body style="text-align: center;">
+<canvas id="canvas" width="1136" height="640" style="text-align: left;"></canvas>
 </body>
 </html>
