@@ -9,35 +9,35 @@
     var numberOfClicks = 0;
     var par = 0;
     function setPar(parNum){
-    par = parNum;
+        par = parNum;
     }
     function selectRect(scene, rect, i, j, newSprite) {
-    var changed = false;
-    if(selectedRecs.filter(function(el) {
-    return el.i === i && el.j === j;
-    }).length === 0) {
-    changed = true;
-    selectedRecs.push({"i": i, "j": j})
+        var changed = false;
+        if(selectedRecs.filter(function(el) {
+                return el.i === i && el.j === j;
+            }).length === 0) {
+            changed = true;
+            selectedRecs.push({"i": i, "j": j})
     }
-    rect.sprite = newSprite;
-    scene.updateGameObject(rect);
-    // Update selection
-    return changed;
+        rect.sprite = newSprite;
+        scene.updateGameObject(rect);
+        // Update selection
+        return changed;
     }
-    function setupBoard(game, canvas, scene, size) {
-    var board = [];
-    var rectWidth = canvas.width / size;
-    var rectHeigth = (canvas.height * 2 / 3 ) / size;
-    var colors = ["blue", "red", "green", "black", "pink", "cyan"];
-    for(var i = 0 ; i < size ; i ++) {
-    board.push([]);
-    for(var j = 0 ; j < size ; j ++) {
-    var random = Math.floor(Math.random() * 6);
-    var rect = new GameObject(i * rectWidth, j * rectHeigth, rectWidth, rectHeigth, new Sprite(colors[random], "white"));
-    board[i].push(rect);
-    scene.addGameObject("rect" + (i * size  + j), rect);
-    }
-    }
+        function setupBoard(game, canvas, scene, size) {
+            var board = [];
+            var rectWidth = canvas.width / size;
+            var rectHeigth = (canvas.height * 2 / 3 ) / size;
+            var colors = ["blue", "red", "green", "black", "pink", "cyan"];
+            for(var i = 0 ; i < size ; i ++) {
+                board.push([]);
+                for(var j = 0 ; j < size ; j ++) {
+                var random = Math.floor(Math.random() * 6);
+                var rect = new GameObject(i * rectWidth, j * rectHeigth, rectWidth, rectHeigth, new Sprite(colors[random], "white"));
+                board[i].push(rect);
+                scene.addGameObject("rect" + (i * size  + j), rect);
+            }
+        }
     // Draw the menu
     rectWidth = canvas.width / 3;
     rectHeigth = (canvas.height * 1 / 3 ) / 2;
